@@ -8,11 +8,17 @@ You can customize the AI density settings and other parameters by modifying the 
 
 ```lua
 Config = {
+    debug = {
+     debug_print = false,   
+     debug_interval = 10, -- do not recommend making this below 1 second
+    },
+    
+    SetInterval = 10, -- this depends on how resource intensive you want it
     density = {
         AI_Vehicles = 0.0, -- 0.0 to 1.0
         AI_Peds = 0.0, -- 0.0 to 1.0
         AI_Animals = 0.0, -- 0.0 to 1.0
-        AI_Hostile = false
+        AI_Hostile = 0 -- (0 = false) (3 = true) (1 = I dont really know)
     }
 }
 ```
