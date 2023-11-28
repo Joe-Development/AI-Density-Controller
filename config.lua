@@ -15,6 +15,6 @@ Config = {
         AI_Peds = 0.0, -- 0.0 to 1.0
         AI_Animals = 0.0, -- 0.0 to 1.0
         AI_Hostile = 0 -- (0 = false) (3 = true) (1 = I dont really know)
-        AI_Dynamic_Density = false
+        AI_Dynamic_Density = false -- the more people who join the less density
     }
 }
