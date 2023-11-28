@@ -1,22 +1,33 @@
 Citizen.CreateThread(function()
     while true do
         Wait(Config.SetInterval)
-        Config.density.AI_Vehicles = ClampDensity(Config.density.AI_Vehicles)
-        Config.density.AI_Peds = ClampDensity(Config.density.AI_Peds)
-        Config.density.AI_Animals = ClampDensity(Config.density.AI_Animals)
+
+        if Config.DynamicDensity then
+            local playerCount = #GetActivePlayers()
+            local dynamicDensityMultiplier = 1.0 - (playerCount * Config.density.dynamicDensityFactor)
+
+            dynamicDensityMultiplier = ClampDensity(dynamicDensityMultiplier)
+
+            Config.density.AI_Vehicles = dynamicDensityMultiplier * Config.density.AI_Vehicles
+            Config.density.AI_Peds = dynamicDensityMultiplier * Config.density.AI_Peds
+            Config.density.AI_Animals = dynamicDensityMultiplier * Config.density.AI_Animals
+        else
+            Config.density.AI_Vehicles = ClampDensity(Config.density.AI_Vehicles)
+            Config.density.AI_Peds = ClampDensity(Config.density.AI_Peds)
+            Config.density.AI_Animals = ClampDensity(Config.density.AI_Animals)
+        end
 
         if Config.debug.debug_print then
-            Citizen.CreateThread(function ()
+            Citizen.CreateThread(function()
                 while true do
                     Wait(Config.debug.debug_interval)
                     print("[DEBUG] AI_Vehicles: " .. Config.density.AI_Vehicles)
                     print("[DEBUG] AI_Peds: " .. Config.density.AI_Peds)
-                    print("[DEBUG] AI_Animals: " .. Config.density.AI_Animals)    
+                    print("[DEBUG] AI_Animals: " .. Config.density.AI_Animals)
                 end
             end)
         end
 
-        
         CheckDensityValue("AI_Vehicles", Config.density.AI_Vehicles)
         CheckDensityValue("AI_Peds", Config.density.AI_Peds)
         CheckDensityValue("AI_Animals", Config.density.AI_Animals)
