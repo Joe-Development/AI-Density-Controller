@@ -15,7 +15,7 @@ Config = {
         AI_Vehicles = 0.5,
         AI_Peds = 0.8,
         AI_Animals = 0.3,
-        dynamicDensityFactor = 0.02,  -- Factor for dynamic density adjustment
+        dynamicDensityFactor = 0.02,  -- Factor for dynamic density adjustment (This will only work if you have DynamicDensity true)
         AI_Hostile = false
     },
 
@@ -24,7 +24,6 @@ Config = {
         debug_interval = 5000  -- Interval in milliseconds for debug prints
     }
 }
-
 ```
 
 ## Adjust the values according to your preferences. ⚙️
