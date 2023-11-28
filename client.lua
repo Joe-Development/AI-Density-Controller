@@ -8,9 +8,9 @@ Citizen.CreateThread(function()
 
             dynamicDensityMultiplier = ClampDensity(dynamicDensityMultiplier)
 
-            Config.density.AI_Vehicles = dynamicDensityMultiplier * Config.density.AI_Vehicles
-            Config.density.AI_Peds = dynamicDensityMultiplier * Config.density.AI_Peds
-            Config.density.AI_Animals = dynamicDensityMultiplier * Config.density.AI_Animals
+            Config.density.AI_Vehicles = dynamicDensityMultiplier * Config.density.AI_Vehicles or 0
+            Config.density.AI_Peds = dynamicDensityMultiplier * Config.density.AI_Peds or 0
+            Config.density.AI_Animals = dynamicDensityMultiplier * Config.density.AI_Animals or 0
         else
             Config.density.AI_Vehicles = ClampDensity(Config.density.AI_Vehicles)
             Config.density.AI_Peds = ClampDensity(Config.density.AI_Peds)
