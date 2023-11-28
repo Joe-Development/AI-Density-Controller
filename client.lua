@@ -1,6 +1,6 @@
 Citizen.CreateThread(function()
     while true do
-        Wait(Config.densityChangeInterval)
+        Wait(Config.SetInterval)
         Config.density.AI_Vehicles = ClampDensity(Config.density.AI_Vehicles)
         Config.density.AI_Peds = ClampDensity(Config.density.AI_Peds)
         Config.density.AI_Animals = ClampDensity(Config.density.AI_Animals)
